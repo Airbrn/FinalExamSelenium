@@ -19,7 +19,7 @@ public class RegistrationTest {
     WebDriver driver;
 
     @Before
-    public void startUp (){
+    public void startUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\SeleniumWebDrivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -27,13 +27,11 @@ public class RegistrationTest {
         driver.get("http://shop.pragmatic.bg/");
     }
 
-
-
     @Test
-    public void registration(){
+    public void registration() {
         //In order for this to work again you need to change the email as otherwise gives
         //the following message: Warning: E-Mail Address is already registered!
-        
+
         driver.findElement(By.cssSelector("span.caret")).click();
         driver.findElement(By.linkText("Register")).click();
         assertTrue("Wrong title", driver.getTitle().contains("Register Account"));
@@ -46,14 +44,14 @@ public class RegistrationTest {
         driver.findElement(By.id("input-confirm")).sendKeys("parola123!");
 
         WebElement subscribeRadioButton = driver.findElement(By.cssSelector("label.radio-inline input[value='1']"));
-        if (!subscribeRadioButton.isSelected()){
+        if (!subscribeRadioButton.isSelected()) {
             subscribeRadioButton.click();
         }
         assertTrue(subscribeRadioButton.isSelected());
 
         WebElement agreeToPrivacyPolicy = driver.findElement(By.cssSelector("div.pull-right input[value='1']"));
 
-        if (!agreeToPrivacyPolicy.isSelected()){
+        if (!agreeToPrivacyPolicy.isSelected()) {
             agreeToPrivacyPolicy.click();
         }
 
@@ -63,9 +61,8 @@ public class RegistrationTest {
         assertTrue("Wrong Title", driver.getTitle().contains("Your Account Has Been Created!"));
     }
 
-
     @After
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }

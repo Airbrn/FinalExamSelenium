@@ -16,7 +16,7 @@ public class RegistrationTest {
     WebDriver driver;
 
     @Before
-    public void startUp (){
+    public void startUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\SeleniumWebDrivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -25,7 +25,7 @@ public class RegistrationTest {
     }
 
     @Test
-    public void registration(){
+    public void registration() {
         driver.findElement(By.cssSelector("span.caret")).click();
         driver.findElement(By.linkText("Register")).click();
         assertTrue("Wrong title", driver.getTitle().contains("Register Account"));
@@ -39,7 +39,7 @@ public class RegistrationTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }

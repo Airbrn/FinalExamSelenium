@@ -12,10 +12,11 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertTrue;
 
 public class LoginTest {
+
     WebDriver driver;
 
     @Before
-    public void startUp (){
+    public void startUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\SeleniumWebDrivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -24,7 +25,7 @@ public class LoginTest {
     }
 
     @Test
-    public void login(){
+    public void login() {
         driver.findElement(By.cssSelector("span.caret")).click();
         driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//li//a[text()='Login']")).click();
         assertTrue("Wrong title", driver.getTitle().contains("Account Login"));
@@ -37,7 +38,7 @@ public class LoginTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }
